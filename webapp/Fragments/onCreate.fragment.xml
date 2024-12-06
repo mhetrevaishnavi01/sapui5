@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"    	
+    xmlns:button="sap.m.Button"
+>l
+    
+	<Dialog  id="createorder" title="Creating Sales Order" titleAlignment ="Center">       
+    <content>
+            <VBox >  
+            <Label text="sales order id"/> 
+           <Input value="{createOrd>/SalesOrder}"/>
+                <Label text="sales order type"/>
+                <Input   value="{createOrd>/SalesOrderType}"/>
+                    <Label text="sales district"/>
+                    <Input value="{createOrd>/SalesDistrict}"/>
+                        <Label text="sold to party"/>
+                        <Input value="{createOrd>/SoldToParty}"/>                
+                        </VBox>                 
+                    </content>    
+                    <beginButton>
+                        <Button text="submit" press="onSubmit"/>
+                        </beginButton>
+                        <endButton>
+                        <Button text="cancel" press="onCancel"/>
+                        </endButton>
+                        <!-- <endButton text="cancel"/>  -->
+            </Dialog>
+  
+</core:FragmentDefinition>

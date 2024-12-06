@@ -1,0 +1,71 @@
+<mvc:View controllerName="com.sales.oder.salesorderpractice.controller.Salesorder"
+    xmlns:mvc="sap.ui.core.mvc"	
+	xmlns:f="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">				
+		<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" 	 filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad"> <!--without symbol filter we use onsearch event-->	
+			<fb:filterGroupItems>
+				<fb:FilterGroupItem name="Name" label="Sales Order" groupName="Group1" visibleInFilterBar="true">
+					<fb:control>
+                        <Input  id="salesorderid" showValueHelp="true" valueHelpRequest="onSalesOrderF4help" />	<!--with symbol its different to filter-->								
+					</fb:control>
+				</fb:FilterGroupItem>
+			    <fb:FilterGroupItem name="sales order type" label="Sales Order Type" groupName="Group1" visibleInFilterBar="true">
+					<fb:control>
+						<Input  id="salesordertype" showValueHelp="true" valueHelpRequest="onSalesTypeF4help"/>
+					</fb:control>
+				</fb:FilterGroupItem>
+				<fb:FilterGroupItem name="Sales district" label="Sales District" groupName="Group1" visibleInFilterBar="true">
+					<fb:control>										
+						<Input id="salesdistrictid" showValueHelp="true" valueHelpRequest="onSalesDistrictF4help"/>									
+					</fb:control>
+				</fb:FilterGroupItem>
+				<fb:FilterGroupItem name="Sold To party" label="Sold To Party" groupName="Group1" visibleInFilterBar="true">
+					<fb:control>										
+					    <Input  id="soldtopartyid" showValueHelp="true" valueHelpRequest="onSoldPartyF4help" />									
+					</fb:control>
+				</fb:FilterGroupItem>
+			</fb:filterGroupItems>
+		</fb:FilterBar>
+		
+		
+    <Table id="idsalesTable" items="{salesord>/results}" mode="SingleSelectLeft">	
+		<headerToolbar>
+	 		<OverflowToolbar >
+				<content>
+				    <ToolbarSpacer />	
+					    <Button text="create" type="Emphasized" icon="sap-icon://create" press="onCreate"/>
+					    <Button text="update" type="Emphasized" icon="sap-icon://edit" press="onUpdate"/>
+			    </content>
+		    </OverflowToolbar>
+		</headerToolbar>	
+		<columns>
+			<Column
+				width="12em">
+				<Text text="Sales Order" />
+			</Column>
+			<Column>
+				<Text text="Sales Order Type" />
+			</Column>
+			<Column>
+				<Text text="Sales District" />
+			</Column>
+			<Column>
+				<Text text="Sold To Party" />
+			</Column>		
+			
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+                    <Text text="{salesord>SalesOrder}"/>
+                    <Text text="{salesord>SalesOrderType}"/>
+                    <Text text="{salesord>SalesDistrict}"/>
+                    <Text text="{salesord>SoldToParty}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </Page>
+</mvc:View>

@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"    	
+    xmlns:button="sap.m.Button"
+>l
+    
+	<Dialog  id="updateorder" title="Updating Sales Order" titleAlignment ="Center">       
+    <content>
+            <VBox >  
+            <Label text="sales order id"/> 
+           <Input value="{updateOrd>/SalesOrder}"/>
+                <Label text="sales order type"/>
+                <Input   value="{updateOrd>/SalesOrderType}"/>
+                    <Label text="sales district"/>
+                    <Input value="{updateOrd>/SalesDistrict}"/>
+                        <Label text="sold to party"/>
+                        <Input value="{updateOrd>/SoldToParty}"/>                
+                        </VBox>                 
+                    </content>    
+                    <beginButton>
+                        <Button text="submit" press="onUpSubmit"/>
+                        </beginButton>
+                        <endButton>
+                        <Button text="cancel" press="onUpCancel"/>
+                        </endButton>
+                        <!-- <endButton text="cancel"/>  -->
+            </Dialog>
+  
+</core:FragmentDefinition>
